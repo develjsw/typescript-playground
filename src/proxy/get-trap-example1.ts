@@ -1,3 +1,6 @@
+/**
+ * get trap 호출 시점 : 속성 접근 시 호출
+ */
 {
     const logger = {
         log: (message: string) => console.log(message),

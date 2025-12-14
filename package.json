@@ -2,7 +2,8 @@
 	"name": "typescript-playground",
 	"version": "0.0.0",
 	"scripts": {
-		"start:proxy-get-trap1": "tsx src/proxy/get-trap-example1.ts",
+		"start:proxy-get-trap1": "tsx src/proxy/get-trap-example1",
+		"start:proxy-set-trap1": "tsx src/proxy/set-trap-example1",
 		"start:index": "tsx src/index"
 	},
 	"devDependencies": {
