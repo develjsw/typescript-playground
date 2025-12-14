@@ -2,14 +2,14 @@
  * get trap 호출 시점 : 속성 접근 시 호출
  */
 {
-    const logger = {
+    let logger = {
         log: (message: string) => console.log(message),
         debug: (message: string) => console.debug(message),
         warn: (message: string) => console.warn(message),
         error: (message: string) => console.error(message),
     }
 
-    const loggerProxy = new Proxy(logger, {
+    logger = new Proxy(logger, {
         get(target, property, receiver) {
             switch (property) {
                 case 'log':
@@ -37,9 +37,8 @@
         }
     });
 
-    console.log(loggerProxy);
-    loggerProxy.log('log 호출'); // [LOG] log 호출
-    loggerProxy.debug('debug 호출'); // [DEBUG] 디폴트 메세지
-    //loggerProxy.warn('warn 호출'); // Runtime Error 발생
-    console.error(loggerProxy.error('error 호출')); // [ERROR] 디폴트 메세지
+    logger.log('log 호출'); // [LOG] log 호출
+    logger.debug('debug 호출'); // [DEBUG] 디폴트 메세지
+    //logger.warn('warn 호출'); // Runtime Error 발생
+    console.error(logger.error('error 호출')); // [ERROR] 디폴트 메세지
 }
